@@ -1,3 +1,4 @@
+@use "sass:math";
 // --------------------------------
 
 // Typography
@@ -136,7 +137,8 @@ $grid-columns: 12 !default;
 
 // used to round width to a number with 2 decimal places - used for IE fallback
 @function round-width ($i) {
-  $width : floor(100% * $i * 100/ $grid-columns) / 100;
+  //$width : floor(100% * $i * 100/ $grid-columns) / 100;
+  $width : math.div(math.floor(math.div(100% * $i * 100, $grid-columns)) , 100);
   @return $width;
 }
 
